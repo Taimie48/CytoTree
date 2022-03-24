@@ -556,7 +556,7 @@ runPhenograph <- function(object, knn = 30, scale = FALSE, verbose = FALSE, ...)
 
   if (scale) phenograph.data <- scale(object@log.data[, object@markers.idx]) else phenograph.data = object@log.data[, object@markers.idx]
 
-  mod <- Rphenograph(phenograph.data, k = 30)
+  mod <- Rphenograph(phenograph.data, k = knn)
 
   object@meta.data$phenograph.id <- object@meta.data$cluster.id  <- membership(mod[[2]])
 
